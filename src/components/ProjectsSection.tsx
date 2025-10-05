@@ -16,13 +16,28 @@ import {
   ChevronRight
 } from 'lucide-react'
 
+interface Project {
+  id: number
+  title: string
+  category: string
+  location: string
+  year: string
+  client: string
+  description: string
+  image: string
+  stats: string[]
+  technologies: string[]
+  results: string[]
+  gallery: string[]
+}
+
 const ProjectsSection = () => {
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1
   })
 
-  const [selectedProject, setSelectedProject] = useState<any>(null)
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null)
   const [activeFilter, setActiveFilter] = useState('all')
 
   const fadeInUp = {
@@ -384,7 +399,7 @@ const ProjectsSection = () => {
 
                   <h4 className="text-xl font-heading text-navy-900 mb-4">Key Results</h4>
                   <ul className="space-y-3 mb-8">
-                    {selectedProject.results.map((result, idx) => (
+                    {selectedProject.results.map((result: string, idx: number) => (
                       <li key={idx} className="flex items-start space-x-3">
                         <div className="w-2 h-2 bg-primary-500 rounded-full mt-2"></div>
                         <span className="text-navy-600">{result}</span>
@@ -394,7 +409,7 @@ const ProjectsSection = () => {
 
                   <h4 className="text-xl font-heading text-navy-900 mb-4">Technologies Used</h4>
                   <div className="flex flex-wrap gap-3">
-                    {selectedProject.technologies.map((tech, idx) => (
+                    {selectedProject.technologies.map((tech: string, idx: number) => (
                       <span
                         key={idx}
                         className="px-4 py-2 bg-primary-50 text-primary-600 rounded-lg font-medium"
@@ -409,7 +424,7 @@ const ProjectsSection = () => {
                 <div>
                   <h4 className="text-xl font-heading text-navy-900 mb-4">Project Stats</h4>
                   <div className="grid grid-cols-3 gap-6 mb-8">
-                    {selectedProject.stats.map((stat, idx) => (
+                    {selectedProject.stats.map((stat: string, idx: number) => (
                       <div key={idx} className="text-center p-4 bg-gray-50 rounded-2xl">
                         <div className="text-2xl font-bold text-primary-600 mb-1">{stat}</div>
                       </div>
