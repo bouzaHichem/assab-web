@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import { Inter, Poppins } from 'next/font/google'
-import '@/styles/globals.css'
+import { ReactNode } from 'react'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -33,6 +33,11 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://assab.com'),
   alternates: {
     canonical: '/',
+    languages: {
+      'en': '/en',
+      'fr': '/fr',
+      'ar': '/ar'
+    }
   },
   openGraph: {
     type: 'website',
@@ -72,23 +77,10 @@ export const metadata: Metadata = {
   },
 }
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
-  return (
-    <html lang="en" className={`${inter.variable} ${poppins.variable}`}>
-      <head>
-        <link rel="icon" href="/favicon.ico" />
-        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-        <link rel="manifest" href="/site.webmanifest" />
-      </head>
-      <body className="font-sans antialiased">
-        {children}
-      </body>
-    </html>
-  )
+type Props = {
+  children: ReactNode;
+};
+
+export default function RootLayout({ children }: Props) {
+  return children;
 }

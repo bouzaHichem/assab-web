@@ -1,0 +1,323 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "solutions": "Solutions",
+    "industries": "Industries",
+    "projects": "Projects",
+    "team": "Team",
+    "contact": "Contact",
+    "getStarted": "Get Started",
+    "telecomInfrastructure": "Telecom Infrastructure",
+    "energySystems": "Energy Systems",
+    "engineeringIntegration": "Engineering & Integration"
+  },
+  "hero": {
+    "badge": "Leading Innovation in Africa",
+    "title": "Powering the Future of",
+    "titleHighlight": "Connectivity & Energy",
+    "subtitle": "Advanced telecommunications infrastructure, sustainable energy systems, and engineering excellence. Building smart connectivity across Africa and beyond.",
+    "cta": "Discover Our Solutions",
+    "watchDemo": "Watch Demo",
+    "stats": {
+      "projects": "Successful Projects",
+      "power": "Power Installed", 
+      "networks": "Network Deployments",
+      "reliability": "System Reliability"
+    }
+  },
+  "about": {
+    "badge": "About ASSAB",
+    "title": "Transforming Africa's Digital Future",
+    "subtitle": "We are pioneering the next generation of telecommunications infrastructure and sustainable energy solutions, connecting communities and powering progress across Africa and beyond.",
+    "mission": {
+      "title": "Our Mission",
+      "content": "To deliver world-class telecommunications infrastructure and sustainable energy solutions that empower communities, drive economic growth, and create a connected, sustainable future for all."
+    },
+    "vision": {
+      "title": "Our Vision", 
+      "content": "To be Africa's leading provider of integrated telecommunications and energy solutions, setting the standard for innovation, reliability, and sustainable development across the continent."
+    },
+    "values": {
+      "title": "Our Values",
+      "content": "Excellence, integrity, innovation, and sustainability guide everything we do. We believe in building lasting relationships and creating value for all stakeholders."
+    },
+    "coreValues": {
+      "title": "What Drives Us",
+      "subtitle": "Our core values shape our culture and guide our decisions in every project we undertake.",
+      "excellence": {
+        "title": "Excellence",
+        "description": "We strive for the highest standards in every project, delivering solutions that exceed expectations and set industry benchmarks."
+      },
+      "reliability": {
+        "title": "Reliability", 
+        "description": "Our systems are built to last, ensuring 99.9% uptime and consistent performance you can depend on, day and night."
+      },
+      "innovation": {
+        "title": "Innovation",
+        "description": "We embrace cutting-edge technologies and forward-thinking approaches to solve complex telecommunications and energy challenges."
+      },
+      "globalImpact": {
+        "title": "Global Impact",
+        "description": "Our solutions connect communities and power progress across Africa and beyond, creating lasting positive change."
+      }
+    },
+    "journey": {
+      "title": "Our Journey",
+      "subtitle": "From startup to industry leader, discover the key milestones that have shaped ASSAB's growth.",
+      "milestones": {
+        "2020": {
+          "event": "Company Founded",
+          "description": "ASSAB established with vision to transform telecom & energy landscape"
+        },
+        "2021": {
+          "event": "First Major Project", 
+          "description": "Successful deployment of 50+ telecom towers across Algeria"
+        },
+        "2022": {
+          "event": "10MW Milestone",
+          "description": "Reached 10MW of installed renewable energy capacity"
+        },
+        "2023": {
+          "event": "Regional Expansion",
+          "description": "Extended operations to 5 countries across North and West Africa"
+        },
+        "2024": {
+          "event": "Innovation Hub",
+          "description": "Launched R&D center for next-generation connectivity solutions"
+        }
+      }
+    },
+    "cta": {
+      "title": "Ready to Transform Your Infrastructure?",
+      "subtitle": "Join the growing number of organizations that trust ASSAB for their telecommunications and energy needs.",
+      "button": "Get Started Today"
+    }
+  },
+  "solutions": {
+    "badge": "Our Solutions",
+    "title": "Complete Infrastructure Solutions", 
+    "subtitle": "From telecommunications infrastructure to sustainable energy systems, we deliver integrated solutions that power your digital transformation.",
+    "services": {
+      "towerSolutions": "Tower Solutions",
+      "networkDesign": "Network Design",
+      "solarSystems": "Solar Systems", 
+      "energyStorage": "Energy Storage",
+      "smartSystems": "Smart Systems",
+      "maintenance": "Maintenance"
+    },
+    "telecom": {
+      "subtitle": "Next-Generation Connectivity",
+      "title": "Telecom Infrastructure",
+      "description": "Comprehensive telecommunications solutions including fiber optics, tower deployment, and network optimization for seamless connectivity.",
+      "features": [
+        "Fiber Optic Networks",
+        "Tower Construction & Maintenance", 
+        "Network Planning & Design",
+        "5G Infrastructure",
+        "Microwave & Satellite Links",
+        "Network Security Solutions"
+      ],
+      "benefits": [
+        "99.9% Network Uptime",
+        "Ultra-Low Latency",
+        "Scalable Architecture", 
+        "24/7 Monitoring"
+      ]
+    },
+    "energy": {
+      "subtitle": "Sustainable Power Solutions",
+      "title": "Energy Systems",
+      "description": "Innovative energy systems including solar installations, smart grids, and backup power solutions for reliable, sustainable energy.",
+      "features": [
+        "Solar Power Systems",
+        "Smart Grid Technology",
+        "Battery Storage Solutions",
+        "Hybrid Power Systems",
+        "Energy Management Software",
+        "Grid Integration Services"
+      ],
+      "benefits": [
+        "Up to 70% Cost Reduction",
+        "Zero Carbon Emissions", 
+        "Energy Independence",
+        "Smart Monitoring"
+      ]
+    },
+    "engineering": {
+      "subtitle": "Complete System Solutions",
+      "title": "Engineering & Integration",
+      "description": "End-to-end engineering services from design and installation to maintenance, ensuring optimal performance and reliability.",
+      "features": [
+        "System Design & Planning",
+        "Project Management",
+        "Installation & Commissioning",
+        "System Integration", 
+        "Preventive Maintenance",
+        "Technical Support"
+      ],
+      "benefits": [
+        "Reduced Deployment Time",
+        "Seamless Integration",
+        "Proactive Maintenance",
+        "Expert Support"
+      ]
+    },
+    "learnMore": "Learn More",
+    "cta": {
+      "title": "Need a Custom Solution?",
+      "subtitle": "Our expert team can design and implement tailored solutions to meet your specific requirements.",
+      "discuss": "Discuss Your Project",
+      "viewProjects": "View Our Projects"
+    }
+  },
+  "industries": {
+    "badge": "Industries We Serve",
+    "title": "Powering Growth Across Industries",
+    "subtitle": "From telecommunications to energy, government to enterprise, we deliver specialized solutions tailored to each industry's unique requirements.",
+    "telecomOperators": {
+      "title": "Telecom Operators",
+      "description": "Comprehensive infrastructure solutions for mobile network operators, ISPs, and telecommunications companies.",
+      "services": ["Network Expansion", "5G Deployment", "Fiber Infrastructure", "Site Optimization"]
+    },
+    "energyProviders": {
+      "title": "Energy Providers", 
+      "description": "Sustainable energy solutions for utilities, renewable energy companies, and power generation facilities.",
+      "services": ["Solar Installations", "Grid Integration", "Energy Storage", "Smart Grid Solutions"]
+    },
+    "government": {
+      "title": "Government",
+      "description": "Secure and reliable infrastructure solutions for government agencies and public sector organizations.",
+      "services": ["Public Networks", "Emergency Systems", "Smart City Solutions", "Security Infrastructure"]
+    },
+    "enterprises": {
+      "title": "Enterprises",
+      "description": "Custom telecommunications and energy solutions for large corporations and business campuses.",
+      "services": ["Private Networks", "Data Centers", "Backup Power", "Building Automation"]
+    },
+    "manufacturing": {
+      "title": "Manufacturing",
+      "description": "Industrial-grade connectivity and power solutions for manufacturing and production facilities.",
+      "services": ["Industrial IoT", "Automation Networks", "Power Systems", "Monitoring Solutions"]
+    },
+    "education": {
+      "title": "Education",
+      "description": "Reliable connectivity and sustainable energy solutions for educational institutions.",
+      "services": ["Campus Networks", "Digital Infrastructure", "Solar Power", "Learning Technology"]
+    },
+    "stats": {
+      "projectsDelivered": "Projects Delivered",
+      "industriesServed": "Industries Served", 
+      "countriesActive": "Countries Active",
+      "clientSatisfaction": "Client Satisfaction"
+    },
+    "cta": {
+      "title": "Don't See Your Industry?",
+      "subtitle": "We work with organizations across many sectors. Let's discuss how our solutions can be tailored to meet your specific industry requirements.",
+      "button": "Discuss Your Needs"
+    }
+  },
+  "projects": {
+    "badge": "Our Projects",
+    "title": "Transforming Infrastructure Across Africa",
+    "subtitle": "Discover our portfolio of successful projects that have revolutionized telecommunications and energy infrastructure across the continent.",
+    "filters": {
+      "all": "All Projects",
+      "telecom": "Telecom", 
+      "energy": "Energy",
+      "engineering": "Engineering"
+    },
+    "cta": {
+      "title": "Ready to Start Your Project?",
+      "subtitle": "Let's discuss how we can bring your vision to life with our proven expertise and innovative solutions.",
+      "button": "Start Your Project"
+    },
+    "modal": {
+      "overview": "Project Overview",
+      "keyResults": "Key Results",
+      "technologies": "Technologies Used",
+      "projectStats": "Project Stats"
+    }
+  },
+  "contact": {
+    "badge": "Contact Us",
+    "title": "Let's Build the Future Together", 
+    "subtitle": "Ready to transform your infrastructure? Get in touch with our experts to discuss your telecommunications and energy requirements.",
+    "info": {
+      "email": {
+        "title": "Email Us",
+        "primary": "info@assab.com",
+        "secondary": "support@assab.com"
+      },
+      "phone": {
+        "title": "Call Us",
+        "primary": "+213 XXX XXX XXX",
+        "secondary": "+213 XXX XXX XXX"
+      },
+      "address": {
+        "title": "Visit Us", 
+        "primary": "Algiers, Algeria",
+        "secondary": "North Africa Headquarters"
+      },
+      "hours": {
+        "title": "Working Hours",
+        "primary": "Mon - Fri: 8AM - 6PM", 
+        "secondary": "Saturday: 9AM - 2PM"
+      }
+    },
+    "form": {
+      "title": "Send us a message",
+      "name": "Full Name",
+      "email": "Email Address",
+      "company": "Company",
+      "phone": "Phone Number", 
+      "subject": "Subject",
+      "message": "Message",
+      "namePlaceholder": "Your full name",
+      "emailPlaceholder": "your.email@company.com",
+      "companyPlaceholder": "Your company name",
+      "phonePlaceholder": "+213 XXX XXX XXX",
+      "subjectPlaceholder": "How can we help you?",
+      "messagePlaceholder": "Tell us about your project requirements...",
+      "required": "*",
+      "sending": "Sending...",
+      "send": "Send Message"
+    },
+    "success": {
+      "title": "Thank You!",
+      "message": "Your message has been sent successfully. Our team will get back to you within 24 hours.",
+      "button": "Send Another Message"
+    },
+    "mapPlaceholder": "Interactive Map Coming Soon"
+  },
+  "footer": {
+    "description": "Powering the future of connectivity and energy across Africa and beyond. We deliver advanced telecommunications infrastructure and sustainable energy solutions.",
+    "solutions": "Solutions",
+    "industries": "Industries",
+    "company": "Company", 
+    "aboutUs": "About Us",
+    "ourTeam": "Our Team",
+    "careers": "Careers",
+    "news": "News & Insights",
+    "caseStudies": "Case Studies",
+    "documentation": "Documentation",
+    "support": "Support",
+    "telecomOperators": "Telecom Operators",
+    "energyProviders": "Energy Providers", 
+    "government": "Government",
+    "enterprises": "Enterprises",
+    "privacyPolicy": "Privacy Policy",
+    "termsOfService": "Terms of Service",
+    "copyright": "All rights reserved."
+  },
+  "common": {
+    "readMore": "Read More",
+    "learnMore": "Learn More", 
+    "getStarted": "Get Started",
+    "contactUs": "Contact Us",
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "tryAgain": "Try Again",
+    "close": "Close"
+  }
+}

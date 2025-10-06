@@ -4,8 +4,12 @@ import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X, ChevronDown } from 'lucide-react'
+import { useTranslations, useLocale } from 'next-intl'
+import LanguageSwitcher from './LanguageSwitcher'
 
 const Header = () => {
+  const t = useTranslations('nav')
+  const locale = useLocale()
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null)
@@ -20,21 +24,21 @@ const Header = () => {
   }, [])
 
   const navigationItems = [
-    { name: 'Home', href: '#home' },
-    { name: 'About', href: '#about' },
+    { name: t('home'), href: '#home' },
+    { name: t('about'), href: '#about' },
     {
-      name: 'Solutions',
+      name: t('solutions'),
       href: '#solutions',
       dropdown: [
-        { name: 'Telecom Infrastructure', href: '#telecom' },
-        { name: 'Energy Systems', href: '#energy' },
-        { name: 'Engineering & Integration', href: '#engineering' },
+        { name: t('telecomInfrastructure'), href: '#telecom' },
+        { name: t('energySystems'), href: '#energy' },
+        { name: t('engineeringIntegration'), href: '#engineering' },
       ]
     },
-    { name: 'Industries', href: '#industries' },
-    { name: 'Projects', href: '#projects' },
-    { name: 'Team', href: '#team' },
-    { name: 'Contact', href: '#contact' },
+    { name: t('industries'), href: '#industries' },
+    { name: t('projects'), href: '#projects' },
+    { name: t('team'), href: '#team' },
+    { name: t('contact'), href: '#contact' },
   ]
 
   const handleLinkClick = (href: string) => {
@@ -147,6 +151,9 @@ const Header = () => {
               </div>
             ))}
             
+            {/* Language Switcher */}
+            <LanguageSwitcher />
+            
             {/* CTA Button */}
             <motion.div
               whileHover={{ scale: 1.05 }}
@@ -157,7 +164,7 @@ const Header = () => {
                 onClick={() => handleLinkClick('#contact')}
                 className="btn-primary"
               >
-                Get Started
+                {t('getStarted')}
               </Link>
             </motion.div>
           </div>
@@ -244,7 +251,7 @@ const Header = () => {
                     onClick={() => handleLinkClick('#contact')}
                     className="btn-primary w-full text-center"
                   >
-                    Get Started
+                    {t('getStarted')}
                   </Link>
                 </div>
               </div>

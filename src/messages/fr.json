@@ -1,0 +1,323 @@
+{
+  "nav": {
+    "home": "Accueil",
+    "about": "À Propos",
+    "solutions": "Solutions",
+    "industries": "Industries",
+    "projects": "Projets",
+    "team": "Équipe",
+    "contact": "Contact",
+    "getStarted": "Commencer",
+    "telecomInfrastructure": "Infrastructure Télécom",
+    "energySystems": "Systèmes Énergétiques",
+    "engineeringIntegration": "Ingénierie & Intégration"
+  },
+  "hero": {
+    "badge": "Leader de l'Innovation en Afrique",
+    "title": "Alimenter l'Avenir de la",
+    "titleHighlight": "Connectivité & Énergie",
+    "subtitle": "Infrastructure de télécommunications avancée, systèmes énergétiques durables et excellence en ingénierie. Construire une connectivité intelligente à travers l'Afrique et au-delà.",
+    "cta": "Découvrir Nos Solutions",
+    "watchDemo": "Voir la Démo",
+    "stats": {
+      "projects": "Projets Réussis",
+      "power": "Puissance Installée",
+      "networks": "Déploiements Réseau",
+      "reliability": "Fiabilité Système"
+    }
+  },
+  "about": {
+    "badge": "À Propos d'ASSAB",
+    "title": "Transformer l'Avenir Numérique de l'Afrique",
+    "subtitle": "Nous pionnions la prochaine génération d'infrastructures de télécommunications et de solutions énergétiques durables, connectant les communautés et alimentant le progrès à travers l'Afrique et au-delà.",
+    "mission": {
+      "title": "Notre Mission",
+      "content": "Fournir des infrastructures de télécommunications et des solutions énergétiques durables de classe mondiale qui autonomisent les communautés, stimulent la croissance économique et créent un avenir connecté et durable pour tous."
+    },
+    "vision": {
+      "title": "Notre Vision",
+      "content": "Être le principal fournisseur africain de solutions intégrées de télécommunications et d'énergie, établissant la norme pour l'innovation, la fiabilité et le développement durable à travers le continent."
+    },
+    "values": {
+      "title": "Nos Valeurs",
+      "content": "L'excellence, l'intégrité, l'innovation et la durabilité guident tout ce que nous faisons. Nous croyons en la construction de relations durables et en la création de valeur pour toutes les parties prenantes."
+    },
+    "coreValues": {
+      "title": "Ce qui Nous Anime",
+      "subtitle": "Nos valeurs fondamentales façonnent notre culture et guident nos décisions dans chaque projet que nous entreprenons.",
+      "excellence": {
+        "title": "Excellence",
+        "description": "Nous nous efforçons d'atteindre les plus hauts standards dans chaque projet, livrant des solutions qui dépassent les attentes et établissent des références industrielles."
+      },
+      "reliability": {
+        "title": "Fiabilité",
+        "description": "Nos systèmes sont construits pour durer, assurant 99,9% de temps de fonctionnement et une performance constante sur laquelle vous pouvez compter, jour et nuit."
+      },
+      "innovation": {
+        "title": "Innovation",
+        "description": "Nous embrassons les technologies de pointe et les approches avant-gardistes pour résoudre les défis complexes des télécommunications et de l'énergie."
+      },
+      "globalImpact": {
+        "title": "Impact Global",
+        "description": "Nos solutions connectent les communautés et alimentent le progrès à travers l'Afrique et au-delà, créant un changement positif durable."
+      }
+    },
+    "journey": {
+      "title": "Notre Parcours",
+      "subtitle": "De startup à leader de l'industrie, découvrez les étapes clés qui ont façonné la croissance d'ASSAB.",
+      "milestones": {
+        "2020": {
+          "event": "Création de l'Entreprise",
+          "description": "ASSAB établie avec la vision de transformer le paysage télécom & énergétique"
+        },
+        "2021": {
+          "event": "Premier Projet Majeur",
+          "description": "Déploiement réussi de plus de 50 tours télécom à travers l'Algérie"
+        },
+        "2022": {
+          "event": "Étape 10MW",
+          "description": "Atteint 10MW de capacité d'énergie renouvelable installée"
+        },
+        "2023": {
+          "event": "Expansion Régionale",
+          "description": "Extension des opérations à 5 pays à travers l'Afrique du Nord et de l'Ouest"
+        },
+        "2024": {
+          "event": "Hub d'Innovation",
+          "description": "Lancement du centre R&D pour les solutions de connectivité de nouvelle génération"
+        }
+      }
+    },
+    "cta": {
+      "title": "Prêt à Transformer Votre Infrastructure ?",
+      "subtitle": "Rejoignez le nombre croissant d'organisations qui font confiance à ASSAB pour leurs besoins en télécommunications et énergie.",
+      "button": "Commencer Aujourd'hui"
+    }
+  },
+  "solutions": {
+    "badge": "Nos Solutions",
+    "title": "Solutions d'Infrastructure Complètes",
+    "subtitle": "Des infrastructures de télécommunications aux systèmes énergétiques durables, nous fournissons des solutions intégrées qui alimentent votre transformation numérique.",
+    "services": {
+      "towerSolutions": "Solutions de Tours",
+      "networkDesign": "Conception Réseau",
+      "solarSystems": "Systèmes Solaires",
+      "energyStorage": "Stockage d'Énergie",
+      "smartSystems": "Systèmes Intelligents",
+      "maintenance": "Maintenance"
+    },
+    "telecom": {
+      "subtitle": "Connectivité de Nouvelle Génération",
+      "title": "Infrastructure Télécom",
+      "description": "Solutions de télécommunications complètes incluant la fibre optique, le déploiement de tours et l'optimisation réseau pour une connectivité transparente.",
+      "features": [
+        "Réseaux de Fibre Optique",
+        "Construction & Maintenance de Tours",
+        "Planification & Conception Réseau",
+        "Infrastructure 5G",
+        "Liaisons Micro-ondes & Satellite",
+        "Solutions de Sécurité Réseau"
+      ],
+      "benefits": [
+        "99,9% de Temps de Fonctionnement Réseau",
+        "Latence Ultra-Faible",
+        "Architecture Évolutive",
+        "Surveillance 24/7"
+      ]
+    },
+    "energy": {
+      "subtitle": "Solutions d'Énergie Durable",
+      "title": "Systèmes Énergétiques",
+      "description": "Systèmes énergétiques innovants incluant les installations solaires, les réseaux intelligents et les solutions d'alimentation de secours pour une énergie fiable et durable.",
+      "features": [
+        "Systèmes d'Énergie Solaire",
+        "Technologie de Réseau Intelligent",
+        "Solutions de Stockage de Batterie",
+        "Systèmes d'Énergie Hybride",
+        "Logiciel de Gestion Énergétique",
+        "Services d'Intégration Réseau"
+      ],
+      "benefits": [
+        "Jusqu'à 70% de Réduction des Coûts",
+        "Zéro Émission de Carbone",
+        "Indépendance Énergétique",
+        "Surveillance Intelligente"
+      ]
+    },
+    "engineering": {
+      "subtitle": "Solutions Système Complètes",
+      "title": "Ingénierie & Intégration",
+      "description": "Services d'ingénierie de bout en bout, de la conception et installation à la maintenance, assurant performance optimale et fiabilité.",
+      "features": [
+        "Conception & Planification Système",
+        "Gestion de Projet",
+        "Installation & Mise en Service",
+        "Intégration Système",
+        "Maintenance Préventive",
+        "Support Technique"
+      ],
+      "benefits": [
+        "Temps de Déploiement Réduit",
+        "Intégration Transparente",
+        "Maintenance Proactive",
+        "Support Expert"
+      ]
+    },
+    "learnMore": "En Savoir Plus",
+    "cta": {
+      "title": "Besoin d'une Solution Sur Mesure ?",
+      "subtitle": "Notre équipe d'experts peut concevoir et implémenter des solutions adaptées pour répondre à vos exigences spécifiques.",
+      "discuss": "Discuter de Votre Projet",
+      "viewProjects": "Voir Nos Projets"
+    }
+  },
+  "industries": {
+    "badge": "Industries que Nous Servons",
+    "title": "Alimenter la Croissance à Travers les Industries",
+    "subtitle": "Des télécommunications à l'énergie, du gouvernement à l'entreprise, nous fournissons des solutions spécialisées adaptées aux exigences uniques de chaque industrie.",
+    "telecomOperators": {
+      "title": "Opérateurs Télécom",
+      "description": "Solutions d'infrastructure complètes pour les opérateurs de réseaux mobiles, FAI et compagnies de télécommunications.",
+      "services": ["Extension Réseau", "Déploiement 5G", "Infrastructure Fibre", "Optimisation de Site"]
+    },
+    "energyProviders": {
+      "title": "Fournisseurs d'Énergie",
+      "description": "Solutions énergétiques durables pour les services publics, compagnies d'énergie renouvelable et installations de production d'énergie.",
+      "services": ["Installations Solaires", "Intégration Réseau", "Stockage d'Énergie", "Solutions de Réseau Intelligent"]
+    },
+    "government": {
+      "title": "Gouvernement",
+      "description": "Solutions d'infrastructure sécurisées et fiables pour les agences gouvernementales et organisations du secteur public.",
+      "services": ["Réseaux Publics", "Systèmes d'Urgence", "Solutions Ville Intelligente", "Infrastructure de Sécurité"]
+    },
+    "enterprises": {
+      "title": "Entreprises",
+      "description": "Solutions personnalisées de télécommunications et d'énergie pour les grandes corporations et campus d'affaires.",
+      "services": ["Réseaux Privés", "Centres de Données", "Alimentation de Secours", "Automatisation de Bâtiment"]
+    },
+    "manufacturing": {
+      "title": "Fabrication",
+      "description": "Solutions de connectivité et d'énergie de qualité industrielle pour les installations de fabrication et de production.",
+      "services": ["IoT Industriel", "Réseaux d'Automatisation", "Systèmes d'Énergie", "Solutions de Surveillance"]
+    },
+    "education": {
+      "title": "Éducation",
+      "description": "Solutions de connectivité fiables et d'énergie durable pour les institutions éducatives.",
+      "services": ["Réseaux de Campus", "Infrastructure Numérique", "Énergie Solaire", "Technologie d'Apprentissage"]
+    },
+    "stats": {
+      "projectsDelivered": "Projets Livrés",
+      "industriesServed": "Industries Servies",
+      "countriesActive": "Pays Actifs",
+      "clientSatisfaction": "Satisfaction Client"
+    },
+    "cta": {
+      "title": "Votre Industrie N'est Pas Listée ?",
+      "subtitle": "Nous travaillons avec des organisations de nombreux secteurs. Discutons de la façon dont nos solutions peuvent être adaptées pour répondre aux exigences spécifiques de votre industrie.",
+      "button": "Discuter de Vos Besoins"
+    }
+  },
+  "projects": {
+    "badge": "Nos Projets",
+    "title": "Transformer l'Infrastructure à Travers l'Afrique",
+    "subtitle": "Découvrez notre portefeuille de projets réussis qui ont révolutionné les infrastructures de télécommunications et d'énergie à travers le continent.",
+    "filters": {
+      "all": "Tous les Projets",
+      "telecom": "Télécom",
+      "energy": "Énergie",
+      "engineering": "Ingénierie"
+    },
+    "cta": {
+      "title": "Prêt à Commencer Votre Projet ?",
+      "subtitle": "Discutons de la façon dont nous pouvons donner vie à votre vision avec notre expertise éprouvée et nos solutions innovantes.",
+      "button": "Commencer Votre Projet"
+    },
+    "modal": {
+      "overview": "Aperçu du Projet",
+      "keyResults": "Résultats Clés",
+      "technologies": "Technologies Utilisées",
+      "projectStats": "Statistiques du Projet"
+    }
+  },
+  "contact": {
+    "badge": "Nous Contacter",
+    "title": "Construisons l'Avenir Ensemble",
+    "subtitle": "Prêt à transformer votre infrastructure ? Contactez nos experts pour discuter de vos besoins en télécommunications et énergie.",
+    "info": {
+      "email": {
+        "title": "Nous Écrire",
+        "primary": "info@assab.com",
+        "secondary": "support@assab.com"
+      },
+      "phone": {
+        "title": "Nous Appeler",
+        "primary": "+213 XXX XXX XXX",
+        "secondary": "+213 XXX XXX XXX"
+      },
+      "address": {
+        "title": "Nous Visiter",
+        "primary": "Alger, Algérie",
+        "secondary": "Siège Social Afrique du Nord"
+      },
+      "hours": {
+        "title": "Heures d'Ouverture",
+        "primary": "Lun - Ven: 8h - 18h",
+        "secondary": "Samedi: 9h - 14h"
+      }
+    },
+    "form": {
+      "title": "Envoyez-nous un message",
+      "name": "Nom Complet",
+      "email": "Adresse Email",
+      "company": "Entreprise",
+      "phone": "Numéro de Téléphone",
+      "subject": "Sujet",
+      "message": "Message",
+      "namePlaceholder": "Votre nom complet",
+      "emailPlaceholder": "votre.email@entreprise.com",
+      "companyPlaceholder": "Nom de votre entreprise",
+      "phonePlaceholder": "+213 XXX XXX XXX",
+      "subjectPlaceholder": "Comment pouvons-nous vous aider ?",
+      "messagePlaceholder": "Parlez-nous de vos exigences de projet...",
+      "required": "*",
+      "sending": "Envoi en cours...",
+      "send": "Envoyer le Message"
+    },
+    "success": {
+      "title": "Merci !",
+      "message": "Votre message a été envoyé avec succès. Notre équipe vous recontactera dans les 24 heures.",
+      "button": "Envoyer un Autre Message"
+    },
+    "mapPlaceholder": "Carte Interactive Bientôt Disponible"
+  },
+  "footer": {
+    "description": "Alimenter l'avenir de la connectivité et de l'énergie à travers l'Afrique et au-delà. Nous fournissons des infrastructures de télécommunications avancées et des solutions énergétiques durables.",
+    "solutions": "Solutions",
+    "industries": "Industries",
+    "company": "Entreprise",
+    "aboutUs": "À Propos",
+    "ourTeam": "Notre Équipe",
+    "careers": "Carrières",
+    "news": "Actualités & Insights",
+    "caseStudies": "Études de Cas",
+    "documentation": "Documentation",
+    "support": "Support",
+    "telecomOperators": "Opérateurs Télécom",
+    "energyProviders": "Fournisseurs d'Énergie",
+    "government": "Gouvernement",
+    "enterprises": "Entreprises",
+    "privacyPolicy": "Politique de Confidentialité",
+    "termsOfService": "Conditions d'Utilisation",
+    "copyright": "Tous droits réservés."
+  },
+  "common": {
+    "readMore": "Lire Plus",
+    "learnMore": "En Savoir Plus",
+    "getStarted": "Commencer",
+    "contactUs": "Nous Contacter",
+    "loading": "Chargement...",
+    "error": "Une erreur s'est produite",
+    "tryAgain": "Réessayer",
+    "close": "Fermer"
+  }
+}
