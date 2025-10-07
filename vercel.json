@@ -1,0 +1,26 @@
+{
+  "buildCommand": "npm run build",
+  "outputDirectory": ".next",
+  "installCommand": "npm install",
+  "functions": {
+    "app/api/**/*.ts": {
+      "runtime": "nodejs18.x"
+    }
+  },
+  "env": {
+    "NEXTAUTH_URL": "@nextauth_url",
+    "NEXTAUTH_SECRET": "@nextauth_secret",
+    "DATABASE_URL": "@database_url"
+  },
+  "build": {
+    "env": {
+      "NEXT_PUBLIC_VERCEL_URL": "$VERCEL_URL"
+    }
+  },
+  "rewrites": [
+    {
+      "source": "/((?!admin|api|_next/static|_next/image|favicon.ico).*)",
+      "destination": "/"
+    }
+  ]
+}
