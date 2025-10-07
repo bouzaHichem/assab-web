@@ -1,0 +1,268 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+// User management and authentication
+model User {
+  id            String    @id @default(cuid())
+  email         String    @unique
+  name          String?
+  password      String
+  role          UserRole  @default(EDITOR)
+  avatar        String?
+  isActive      Boolean   @default(true)
+  lastLoginAt   DateTime?
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+  
+  // Relations
+  createdPages     Page[]     @relation("PageCreatedBy")
+  updatedPages     Page[]     @relation("PageUpdatedBy")
+  createdServices  Service[]  @relation("ServiceCreatedBy")
+  updatedServices  Service[]  @relation("ServiceUpdatedBy")
+  uploadedMedia    Media[]    @relation("MediaUploadedBy")
+  activities       Activity[]
+  
+  @@map("users")
+}
+
+enum UserRole {
+  ADMIN
+  EDITOR
+  VIEWER
+}
+
+// Content management
+model Page {
+  id          String   @id @default(cuid())
+  slug        String   @unique
+  title       String   // JSON string for multilingual: {en: string, fr: string, ar: string}
+  content     String   // JSON string for multilingual content
+  excerpt     String?  // JSON string for short description
+  metaTitle   String?
+  metaDesc    String?
+  status      PageStatus @default(DRAFT)
+  publishedAt DateTime?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  createdById String
+  updatedById String
+  
+  // Relations
+  createdBy   User @relation("PageCreatedBy", fields: [createdById], references: [id])
+  updatedBy   User @relation("PageUpdatedBy", fields: [updatedById], references: [id])
+  
+  @@map("pages")
+}
+
+enum PageStatus {
+  DRAFT
+  PUBLISHED
+  ARCHIVED
+}
+
+// Services and products management
+model Service {
+  id            String   @id @default(cuid())
+  slug          String   @unique
+  title         String   // JSON string for multilingual
+  description   String   // JSON string for multilingual
+  shortDesc     String?  // JSON string for short description
+  features      String?  // JSON string for array of features
+  pricing       String?  // JSON string for pricing information
+  category      String
+  status        ServiceStatus @default(ACTIVE)
+  sortOrder     Int      @default(0)
+  featuredImage String?
+  gallery       String?  // JSON string for array of image URLs
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  createdById   String
+  updatedById   String
+  
+  // Relations
+  createdBy     User @relation("ServiceCreatedBy", fields: [createdById], references: [id])
+  updatedBy     User @relation("ServiceUpdatedBy", fields: [updatedById], references: [id])
+  
+  @@map("services")
+}
+
+enum ServiceStatus {
+  ACTIVE
+  INACTIVE
+  DRAFT
+}
+
+// Media management
+model Media {
+  id          String    @id @default(cuid())
+  filename    String
+  originalName String
+  mimeType    String
+  size        Int
+  url         String
+  type        MediaType
+  alt         String?
+  caption     String?   // JSON string for multilingual captions
+  folder      String?   // Organization folder
+  uploadedAt  DateTime  @default(now())
+  uploadedById String
+  
+  // Relations
+  uploadedBy  User @relation("MediaUploadedBy", fields: [uploadedById], references: [id])
+  
+  @@map("media")
+}
+
+enum MediaType {
+  IMAGE
+  VIDEO
+  DOCUMENT
+  AUDIO
+}
+
+// Site settings and configuration
+model Setting {
+  id          String   @id @default(cuid())
+  key         String   @unique
+  value       String   // JSON string - can store any type of data
+  type        SettingType
+  group       String   // Group settings together
+  label       String   // JSON string for multilingual labels
+  description String?  // JSON string for multilingual descriptions
+  updatedAt   DateTime @updatedAt
+  
+  @@map("settings")
+}
+
+enum SettingType {
+  TEXT
+  TEXTAREA
+  HTML
+  JSON
+  BOOLEAN
+  NUMBER
+  IMAGE
+  FILE
+}
+
+// Analytics and tracking
+model Analytics {
+  id        String   @id @default(cuid())
+  date      String   // Date string in YYYY-MM-DD format
+  page      String
+  visitors  Int      @default(0)
+  pageviews Int      @default(0)
+  bounceRate Float?  // Percentage
+  avgSessionTime Int? // In seconds
+  
+  @@unique([date, page])
+  @@map("analytics")
+}
+
+// Contact form submissions and leads
+model Lead {
+  id          String     @id @default(cuid())
+  emailId     String?    // Original email UID for tracking
+  name        String
+  email       String
+  phone       String?
+  company     String?
+  subject     String
+  message     String
+  source      LeadSource @default(DIRECT)
+  status      LeadStatus @default(NEW)
+  priority    LeadPriority @default(MEDIUM)
+  assignedTo  String?
+  tags        String?    // JSON array of tags
+  notes       String?
+  receivedAt  DateTime   // When the email was received
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt
+  
+  @@map("leads")
+}
+
+enum LeadSource {
+  WEBSITE
+  DIRECT
+  REFERRAL
+  EMAIL
+  PHONE
+  SOCIAL
+}
+
+enum LeadStatus {
+  NEW
+  CONTACTED
+  QUALIFIED
+  CONVERTED
+  CLOSED
+}
+
+enum LeadPriority {
+  LOW
+  MEDIUM
+  HIGH
+}
+
+// Activity logs for audit trail
+model Activity {
+  id        String   @id @default(cuid())
+  userId    String
+  action    String   // CREATE, UPDATE, DELETE, LOGIN, etc.
+  resource  String   // What was acted upon
+  resourceId String?
+  details   String?  // JSON string for additional context
+  ipAddress String?
+  userAgent String?
+  createdAt DateTime @default(now())
+  
+  // Relations
+  user      User @relation(fields: [userId], references: [id])
+  
+  @@map("activities")
+}
+
+// Menu management
+model MenuItem {
+  id          String   @id @default(cuid())
+  label       String   // JSON string for multilingual labels
+  url         String?
+  pageId      String?  // Link to internal page
+  parentId    String?  // For nested menus
+  sortOrder   Int      @default(0)
+  isActive    Boolean  @default(true)
+  target      String?  // _blank, _self, etc.
+  icon        String?  // Icon class or name
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  // Self-referential relations for nested menus
+  parent      MenuItem? @relation("MenuHierarchy", fields: [parentId], references: [id], onDelete: Cascade)
+  children    MenuItem[] @relation("MenuHierarchy")
+  
+  @@map("menu_items")
+}
+
+// Company timeline and milestones
+model Timeline {
+  id          String   @id @default(cuid())
+  year        String
+  title       String   // JSON string for multilingual titles
+  description String   // JSON string for multilingual descriptions  
+  order       Int      @default(0)
+  isActive    Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  @@map("timeline")
+}

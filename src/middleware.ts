@@ -13,6 +13,15 @@ export default createMiddleware({
 });
 
 export const config = {
-  // Match only internationalized pathnames
-  matcher: ['/', '/(ar|en|fr)/:path*']
+  // Match only internationalized pathnames, exclude admin routes
+  matcher: [
+    // Match all pathnames except for
+    // - /admin (admin panel)
+    // - /api (API routes)
+    // - /_next (Next.js internals)
+    // - Static files
+    '/((?!admin|api|_next|_vercel|.*\\.).*)',
+    // Match root
+    '/'
+  ]
 };
