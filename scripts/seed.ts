@@ -59,6 +59,11 @@ async function main() {
         en: 'Site Description',
         fr: 'Description du site',
         ar: 'وصف الموقع'
+      }),
+      description: JSON.stringify({
+        en: 'A brief description of your website',
+        fr: 'Une brève description de votre site web',
+        ar: 'وصف مختصر لموقعك الإلكتروني'
       })
     },
     {
@@ -70,6 +75,11 @@ async function main() {
         en: 'Contact Email',
         fr: 'Email de contact',
         ar: 'البريد الإلكتروني للاتصال'
+      }),
+      description: JSON.stringify({
+        en: 'Primary contact email address',
+        fr: 'Adresse email de contact principal',
+        ar: 'عنوان البريد الإلكتروني للاتصال الرئيسي'
       })
     },
     {
@@ -81,6 +91,11 @@ async function main() {
         en: 'Contact Phone',
         fr: 'Téléphone de contact',
         ar: 'هاتف الاتصال'
+      }),
+      description: JSON.stringify({
+        en: 'Primary contact phone number',
+        fr: 'Numéro de téléphone de contact principal',
+        ar: 'رقم هاتف الاتصال الرئيسي'
       })
     }
   ]
