@@ -172,7 +172,7 @@ export default function ServicesPage() {
     try {
       const updatedServices = services.map(service =>
         service.id === serviceId
-          ? { ...service, status: service.status === 'active' ? 'inactive' : 'active' as const }
+          ? { ...service, status: (service.status === 'active' ? 'inactive' : 'active') as Service['status'] }
           : service
       )
       setServices(updatedServices)

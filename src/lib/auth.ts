@@ -1,11 +1,10 @@
 import { NextAuthOptions } from 'next-auth'
 import CredentialsProvider from 'next-auth/providers/credentials'
-import { PrismaAdapter } from '@auth/prisma-adapter'
 import { prisma } from './prisma'
 import bcrypt from 'bcryptjs'
 
 export const authOptions: NextAuthOptions = {
-  adapter: PrismaAdapter(prisma),
+  // adapter: PrismaAdapter(prisma), // Disabled for build compatibility
   providers: [
     CredentialsProvider({
       name: 'credentials',
@@ -54,9 +53,9 @@ export const authOptions: NextAuthOptions = {
         return {
           id: user.id,
           email: user.email,
-          name: user.name,
+          name: user.name || '',
           role: user.role,
-          avatar: user.avatar
+          avatar: user.avatar || undefined
         }
       }
     })
@@ -82,8 +81,8 @@ export const authOptions: NextAuthOptions = {
         })
         if (dbUser) {
           token.role = dbUser.role
-          token.name = dbUser.name
-          token.avatar = dbUser.avatar
+          token.name = dbUser.name || ''
+          token.avatar = dbUser.avatar || undefined
         }
       }
 

@@ -1,3 +1,5 @@
+const withNextIntl = require('next-intl/plugin')('./src/i18n.ts');
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
@@ -10,4 +12,4 @@ const nextConfig = {
   serverExternalPackages: ['@prisma/client', 'bcryptjs']
 }
 
-module.exports = nextConfig;
+module.exports = withNextIntl(nextConfig);

@@ -1,4 +1,5 @@
 database-scripts/
+scripts/
 *.md
 .env.example
 .git/

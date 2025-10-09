@@ -54,12 +54,32 @@ export async function saveEmailLeads(leads: EmailLead[]): Promise<void> {
           id: lead.id
         },
         update: {
-          ...dbLead,
+          emailId: dbLead.emailId,
+          name: dbLead.name,
+          email: dbLead.email,
+          subject: dbLead.subject,
+          message: dbLead.message,
+          company: dbLead.company,
+          phone: dbLead.phone,
+          assignedTo: dbLead.assignedTo,
+          tags: dbLead.tags,
+          notes: dbLead.notes,
+          receivedAt: dbLead.receivedAt,
           updatedAt: new Date(),
         },
         create: {
           id: lead.id,
-          ...dbLead,
+          emailId: dbLead.emailId,
+          name: dbLead.name,
+          email: dbLead.email,
+          subject: dbLead.subject,
+          message: dbLead.message,
+          company: dbLead.company,
+          phone: dbLead.phone,
+          assignedTo: dbLead.assignedTo,
+          tags: dbLead.tags,
+          notes: dbLead.notes,
+          receivedAt: dbLead.receivedAt,
         },
       })
     })
@@ -93,7 +113,7 @@ export async function updateLeadStatusInDb(leadId: string, status: EmailLead['st
     await prisma.lead.update({
       where: { id: leadId },
       data: { 
-        status: status.toUpperCase(),
+        status: status.toUpperCase() as any,
         updatedAt: new Date()
       }
     })
@@ -141,7 +161,7 @@ export async function updateLeadPriorityInDb(leadId: string, priority: EmailLead
     await prisma.lead.update({
       where: { id: leadId },
       data: { 
-        priority: priority.toUpperCase(),
+        priority: priority.toUpperCase() as any,
         updatedAt: new Date()
       }
     })

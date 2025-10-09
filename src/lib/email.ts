@@ -253,7 +253,7 @@ function extractTags(content: string, subject: string): string[] {
     }
   }
 
-  return [...new Set(tags)] // Remove duplicates
+  return Array.from(new Set(tags)) // Remove duplicates
 }
 
 export async function updateLeadStatus(leadId: string, status: EmailLead['status']): Promise<boolean> {

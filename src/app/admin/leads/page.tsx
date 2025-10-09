@@ -149,34 +149,30 @@ export default function LeadsPage() {
     }
   }
 
-  const getStatusColor = (status: Lead['status']) => {
-    switch (status) {
-      case 'new':
+  const getStatusColor = (status: string) => {
+    switch (status.toUpperCase()) {
+      case 'NEW':
         return 'bg-blue-100 text-blue-800'
-      case 'contacted':
+      case 'CONTACTED':
         return 'bg-yellow-100 text-yellow-800'
-      case 'qualified':
+      case 'QUALIFIED':
         return 'bg-purple-100 text-purple-800'
-      case 'proposal':
+      case 'CONVERTED':
         return 'bg-orange-100 text-orange-800'
-      case 'closed':
+      case 'CLOSED':
         return 'bg-green-100 text-green-800'
-      case 'lost':
-        return 'bg-red-100 text-red-800'
       default:
         return 'bg-gray-100 text-gray-800'
     }
   }
 
-  const getPriorityColor = (priority: Lead['priority']) => {
-    switch (priority) {
-      case 'urgent':
+  const getPriorityColor = (priority: string) => {
+    switch (priority.toUpperCase()) {
+      case 'HIGH':
         return 'bg-red-100 text-red-800'
-      case 'high':
-        return 'bg-orange-100 text-orange-800'
-      case 'medium':
+      case 'MEDIUM':
         return 'bg-yellow-100 text-yellow-800'
-      case 'low':
+      case 'LOW':
         return 'bg-green-100 text-green-800'
       default:
         return 'bg-gray-100 text-gray-800'
@@ -201,12 +197,12 @@ export default function LeadsPage() {
           comparison = a.name.localeCompare(b.name)
           break
         case 'priority':
-          const priorityOrder = { urgent: 4, high: 3, medium: 2, low: 1 }
-          comparison = priorityOrder[a.priority] - priorityOrder[b.priority]
+          const priorityOrder: Record<string, number> = { HIGH: 3, MEDIUM: 2, LOW: 1 }
+          comparison = (priorityOrder[a.priority.toUpperCase()] || 0) - (priorityOrder[b.priority.toUpperCase()] || 0)
           break
         case 'date':
         default:
-          comparison = new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime()
+          comparison = new Date(a.receivedAt).getTime() - new Date(b.receivedAt).getTime()
           break
       }
       return sortOrder === 'desc' ? -comparison : comparison
@@ -288,9 +284,8 @@ export default function LeadsPage() {
                         <option value="new">New</option>
                         <option value="contacted">Contacted</option>
                         <option value="qualified">Qualified</option>
-                        <option value="proposal">Proposal</option>
+                        <option value="converted">Converted</option>
                         <option value="closed">Closed</option>
-                        <option value="lost">Lost</option>
                       </select>
                     </div>
                     <div className="flex items-center justify-between">
@@ -303,7 +298,6 @@ export default function LeadsPage() {
                         <option value="low">Low</option>
                         <option value="medium">Medium</option>
                         <option value="high">High</option>
-                        <option value="urgent">Urgent</option>
                       </select>
                     </div>
                     <div className="flex items-center justify-between">
@@ -317,8 +311,8 @@ export default function LeadsPage() {
                       </div>
                     )}
                     <div className="flex items-center justify-between">
-                      <span className="text-slate-600">Created:</span>
-                      <span className="text-slate-900">{new Date(lead.createdAt).toLocaleDateString()}</span>
+                      <span className="text-slate-600">Received:</span>
+                      <span className="text-slate-900">{new Date(lead.receivedAt).toLocaleDateString()}</span>
                     </div>
                   </div>
                 </div>
@@ -545,7 +539,7 @@ export default function LeadsPage() {
                 <div className="text-right">
                   <div className="text-sm font-medium text-slate-900">{lead.subject}</div>
                   <div className="text-xs text-slate-500 mt-1">
-                    {new Date(lead.createdAt).toLocaleDateString()} • {lead.source}
+                    {new Date(lead.receivedAt).toLocaleDateString()} • {lead.source}
                   </div>
                   {lead.assignedTo && (
                     <div className="text-xs text-slate-600 mt-1">

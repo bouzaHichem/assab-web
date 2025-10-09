@@ -10,7 +10,7 @@ import {
   PhotoIcon,
   BuildingOfficeIcon,
   EyeIcon,
-  TrendingUpIcon
+  ArrowTrendingUpIcon
 } from '@heroicons/react/24/outline'
 
 export default function AdminDashboard() {
