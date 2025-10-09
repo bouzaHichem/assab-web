@@ -1,6 +1,6 @@
 #!/usr/bin/env tsx
 
-import { PrismaClient } from '@prisma/client'
+import { PrismaClient, SettingType } from '@prisma/client'
 import { hashPassword } from '../src/lib/auth-utils'
 
 const prisma = new PrismaClient()
@@ -37,7 +37,7 @@ async function main() {
     {
       key: 'site_name',
       value: JSON.stringify('ASSAB'),
-      type: 'TEXT',
+      type: SettingType.TEXT,
       group: 'general',
       label: JSON.stringify({
         en: 'Site Name',
@@ -53,7 +53,7 @@ async function main() {
     {
       key: 'site_description',
       value: JSON.stringify('Telecom & Energy Solutions'),
-      type: 'TEXTAREA',
+      type: SettingType.TEXTAREA,
       group: 'general',
       label: JSON.stringify({
         en: 'Site Description',
@@ -69,7 +69,7 @@ async function main() {
     {
       key: 'contact_email',
       value: JSON.stringify('contact@assab.com'),
-      type: 'TEXT',
+      type: SettingType.TEXT,
       group: 'contact',
       label: JSON.stringify({
         en: 'Contact Email',
@@ -85,7 +85,7 @@ async function main() {
     {
       key: 'contact_phone',
       value: JSON.stringify('+213 xxx xxx xxx'),
-      type: 'TEXT',
+      type: SettingType.TEXT,
       group: 'contact',
       label: JSON.stringify({
         en: 'Contact Phone',
