@@ -1,0 +1,9 @@
+database-scripts/
+*.md
+.env.example
+.git/
+.gitignore
+README.md
+DEPLOYMENT.md
+REAL_DATA_SETUP.md
+PRODUCTION_ENV_SETUP.md

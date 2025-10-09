@@ -10,8 +10,8 @@
     "lint": "next lint",
     "type-check": "tsc --noEmit",
     "db:migrate": "prisma migrate deploy",
-    "db:seed": "tsx scripts/seed.ts",
-    "db:seed-timeline": "tsx scripts/seed-timeline.ts",
+    "db:seed": "tsx database-scripts/seed.ts",
+    "db:seed-timeline": "tsx database-scripts/seed-timeline.ts",
     "postbuild": "prisma generate",
     "deploy": "npm run build && npm run db:migrate && npm run db:seed && npm run db:seed-timeline"
   },
