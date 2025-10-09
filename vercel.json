@@ -6,7 +6,9 @@
   },
   "build": {
     "env": {
-      "SKIP_ENV_VALIDATION": "1"
+      "SKIP_ENV_VALIDATION": "1",
+      "PRISMA_GENERATE_SKIP_POSTINSTALL_FOR_VERCEL": "1"
     }
-  }
+  },
+  "installCommand": "npm install && npx prisma generate"
 }
