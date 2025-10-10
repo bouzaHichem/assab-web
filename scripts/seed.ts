@@ -32,12 +32,12 @@ async function main() {
     console.log('✅ Admin user already exists')
   }
 
-  // Create some default settings
-  const settings = [
+  // Create some default settings with explicit type casting
+  const settings: any[] = [
     {
       key: 'site_name',
       value: JSON.stringify('ASSAB'),
-      type: SettingType.TEXT,
+      type: 'TEXT',
       group: 'general',
       label: JSON.stringify({
         en: 'Site Name',
@@ -53,7 +53,7 @@ async function main() {
     {
       key: 'site_description',
       value: JSON.stringify('Telecom & Energy Solutions'),
-      type: SettingType.TEXTAREA,
+      type: 'TEXTAREA',
       group: 'general',
       label: JSON.stringify({
         en: 'Site Description',
@@ -69,7 +69,7 @@ async function main() {
     {
       key: 'contact_email',
       value: JSON.stringify('contact@assab.com'),
-      type: SettingType.TEXT,
+      type: 'TEXT',
       group: 'contact',
       label: JSON.stringify({
         en: 'Contact Email',
@@ -85,7 +85,7 @@ async function main() {
     {
       key: 'contact_phone',
       value: JSON.stringify('+213 xxx xxx xxx'),
-      type: SettingType.TEXT,
+      type: 'TEXT',
       group: 'contact',
       label: JSON.stringify({
         en: 'Contact Phone',

@@ -12,7 +12,6 @@
     "db:migrate": "prisma migrate deploy",
     "db:seed": "tsx scripts/seed.ts",
     "db:seed-timeline": "tsx scripts/seed-timeline.ts",
-    "postbuild": "prisma generate",
     "deploy": "npm run build && npm run db:migrate && npm run db:seed && npm run db:seed-timeline"
   },
   "dependencies": {
