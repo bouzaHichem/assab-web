@@ -1,6 +1,6 @@
 #!/usr/bin/env tsx
 
-import { PrismaClient, SettingType } from '@prisma/client'
+import { PrismaClient } from '@prisma/client'
 import { hashPassword } from '../src/lib/auth-utils'
 
 const prisma = new PrismaClient()
