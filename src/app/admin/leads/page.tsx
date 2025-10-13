@@ -18,6 +18,7 @@ import {
   ChatBubbleLeftRightIcon
 } from '@heroicons/react/24/outline'
 import toast from 'react-hot-toast'
+import { apiCall, initializeBackendAuth } from '@/lib/api'
 
 interface Lead {
   id: string
@@ -57,25 +58,23 @@ export default function LeadsPage() {
 
   useEffect(() => {
     if (session) {
-      fetchLeads()
+      initializeBackendAuth().then(() => {
+        fetchLeads()
+      })
     }
   }, [session])
 
   const fetchLeads = async () => {
     try {
-      // Fetch real leads from email API
-      const response = await fetch('/api/leads', {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      })
+      // Fetch real leads from backend API
+      const response = await apiCall('/api/leads/admin')
       
       if (!response.ok) {
         throw new Error('Failed to fetch leads')
       }
       
       const data = await response.json()
+      // Backend returns { leads: [], pagination: {} }
       setLeads(data.leads || [])
     } catch (error) {
       toast.error('Failed to fetch leads')
@@ -87,14 +86,9 @@ export default function LeadsPage() {
 
   const handleUpdateLeadStatus = async (leadId: string, newStatus: Lead['status']) => {
     try {
-      const response = await fetch('/api/leads', {
+      const response = await apiCall(`/api/leads/admin/${leadId}`, {
         method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json',
-        },
         body: JSON.stringify({
-          action: 'updateStatus',
-          leadId,
           status: newStatus
         })
       })
