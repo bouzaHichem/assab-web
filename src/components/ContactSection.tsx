@@ -14,7 +14,8 @@ import {
   CheckCircle,
   MessageSquare
 } from 'lucide-react'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import { fetchSettingsMap, SettingsMap } from '@/lib/content'
 
 const contactSchema = z.object({
   name: z.string().min(2, 'Name must be at least 2 characters'),
@@ -35,6 +36,8 @@ const ContactSection = () => {
 
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const [settings, setSettings] = useState<SettingsMap>({})
+  useEffect(() => { fetchSettingsMap().then(setSettings) }, [])
 
   const {
     register,
@@ -78,29 +81,29 @@ const ContactSection = () => {
     {
       icon: <Mail size={24} />,
       title: 'Email Us',
-      content: 'info@assab.com',
-      subtitle: 'support@assab.com',
-      link: 'mailto:info@assab.com'
+      content: settings.contact_email_primary ?? 'info@assab.com',
+      subtitle: settings.contact_email_secondary ?? 'support@assab.com',
+      link: `mailto:${settings.contact_email_primary ?? 'info@assab.com'}`
     },
     {
       icon: <Phone size={24} />,
       title: 'Call Us',
-      content: '+213 XXX XXX XXX',
-      subtitle: '+213 XXX XXX XXX',
-      link: 'tel:+213XXXXXXXXX'
+      content: settings.contact_phone_primary ?? '+213 XXX XXX XXX',
+      subtitle: settings.contact_phone_secondary ?? '+213 XXX XXX XXX',
+      link: `tel:${(settings.contact_phone_primary ?? '+213XXXXXXXXX').replace(/\s/g,'')}`
     },
     {
       icon: <MapPin size={24} />,
       title: 'Visit Us',
-      content: 'Algiers, Algeria',
-      subtitle: 'North Africa Headquarters',
+      content: settings.contact_address_primary ?? 'Algiers, Algeria',
+      subtitle: settings.contact_address_secondary ?? 'North Africa Headquarters',
       link: '#'
     },
     {
       icon: <Clock size={24} />,
       title: 'Working Hours',
-      content: 'Mon - Fri: 8AM - 6PM',
-      subtitle: 'Saturday: 9AM - 2PM',
+      content: settings.contact_hours_primary ?? 'Mon - Fri: 8AM - 6PM',
+      subtitle: settings.contact_hours_secondary ?? 'Saturday: 9AM - 2PM',
       link: '#'
     }
   ]
@@ -160,22 +163,21 @@ const ContactSection = () => {
               className="inline-flex items-center space-x-2 bg-primary-50 text-primary-600 px-4 py-2 rounded-full text-sm font-medium mb-4"
             >
               <MessageSquare size={16} />
-              <span>Contact Us</span>
+              <span>{settings.contact_badge_text ?? 'Contact Us'}</span>
             </motion.div>
             
             <motion.h2
               variants={fadeInUp}
               className="text-navy-900 font-heading mb-6"
             >
-              Let's Build the Future Together
+              {settings.contact_section_title ?? "Let's Build the Future Together"}
             </motion.h2>
             
             <motion.p
               variants={fadeInUp}
               className="text-xl text-navy-600 max-w-3xl mx-auto leading-relaxed"
             >
-              Ready to transform your infrastructure? Get in touch with our experts 
-              to discuss your telecommunications and energy requirements.
+              {settings.contact_section_description ?? 'Ready to transform your infrastructure? Get in touch with our experts to discuss your telecommunications and energy requirements.'}
             </motion.p>
           </div>
 

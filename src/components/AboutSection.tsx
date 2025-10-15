@@ -12,12 +12,16 @@ import {
   TrendingUp,
   Shield
 } from 'lucide-react'
+import { useEffect, useState } from 'react'
+import { fetchSettingsMap, SettingsMap } from '@/lib/content'
 
 const AboutSection = () => {
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1
   })
+  const [settings, setSettings] = useState<SettingsMap>({})
+  useEffect(() => { fetchSettingsMap().then(setSettings) }, [])
 
   const fadeInUp = {
     initial: { opacity: 0, y: 60 },
@@ -80,22 +84,21 @@ const AboutSection = () => {
               className="inline-flex items-center space-x-2 bg-primary-50 text-primary-600 px-4 py-2 rounded-full text-sm font-medium mb-4"
             >
               <Users size={16} />
-              <span>About ASSAB</span>
+              <span>{settings.about_badge_text ?? 'About ASSAB'}</span>
             </motion.div>
             
             <motion.h2
               variants={fadeInUp}
               className="text-navy-900 font-heading mb-6"
             >
-              Transforming Africa's Digital Future
+              {settings.about_section_title ?? "Transforming Africa's Digital Future"}
             </motion.h2>
             
             <motion.p
               variants={fadeInUp}
               className="text-xl text-navy-600 max-w-3xl mx-auto leading-relaxed"
             >
-              We are pioneering the next generation of telecommunications infrastructure and sustainable energy solutions, 
-              connecting communities and powering progress across Africa and beyond.
+              {settings.about_section_description ?? "We are pioneering the next generation of telecommunications infrastructure and sustainable energy solutions, connecting communities and powering progress across Africa and beyond."}
             </motion.p>
           </div>
 
@@ -109,10 +112,9 @@ const AboutSection = () => {
               <div className="w-16 h-16 bg-gradient-to-br from-primary-500 to-primary-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
                 <Target size={32} className="text-white" />
               </div>
-              <h3 className="text-2xl font-heading text-navy-900 mb-4">Our Mission</h3>
+              <h3 className="text-2xl font-heading text-navy-900 mb-4">{settings.about_mission_title ?? 'Our Mission'}</h3>
               <p className="text-navy-600 leading-relaxed">
-                To deliver world-class telecommunications infrastructure and sustainable energy solutions 
-                that empower communities, drive economic growth, and create a connected, sustainable future for all.
+                {settings.about_mission ?? 'To deliver world-class telecommunications infrastructure and sustainable energy solutions that empower communities, drive economic growth, and create a connected, sustainable future for all.'}
               </p>
             </motion.div>
 
@@ -124,10 +126,9 @@ const AboutSection = () => {
               <div className="w-16 h-16 bg-gradient-to-br from-accent-green to-primary-500 rounded-2xl flex items-center justify-center mx-auto mb-6">
                 <Eye size={32} className="text-white" />
               </div>
-              <h3 className="text-2xl font-heading text-navy-900 mb-4">Our Vision</h3>
+              <h3 className="text-2xl font-heading text-navy-900 mb-4">{settings.about_vision_title ?? 'Our Vision'}</h3>
               <p className="text-navy-600 leading-relaxed">
-                To be Africa's leading provider of integrated telecommunications and energy solutions, 
-                setting the standard for innovation, reliability, and sustainable development across the continent.
+                {settings.about_vision ?? "To be Africa's leading provider of integrated telecommunications and energy solutions, setting the standard for innovation, reliability, and sustainable development across the continent."}
               </p>
             </motion.div>
 
@@ -139,10 +140,9 @@ const AboutSection = () => {
               <div className="w-16 h-16 bg-gradient-to-br from-accent-blue to-primary-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
                 <Heart size={32} className="text-white" />
               </div>
-              <h3 className="text-2xl font-heading text-navy-900 mb-4">Our Values</h3>
+              <h3 className="text-2xl font-heading text-navy-900 mb-4">{settings.about_values_title ?? 'Our Values'}</h3>
               <p className="text-navy-600 leading-relaxed">
-                Excellence, integrity, innovation, and sustainability guide everything we do. 
-                We believe in building lasting relationships and creating value for all stakeholders.
+                {settings.about_values_description ?? 'Excellence, integrity, innovation, and sustainability guide everything we do. We believe in building lasting relationships and creating value for all stakeholders.'}
               </p>
             </motion.div>
           </div>
@@ -153,14 +153,14 @@ const AboutSection = () => {
             className="mb-20"
           >
             <div className="text-center mb-12">
-              <h3 className="text-3xl font-heading text-navy-900 mb-4">What Drives Us</h3>
+              <h3 className="text-3xl font-heading text-navy-900 mb-4">{settings.about_values_header_title ?? 'What Drives Us'}</h3>
               <p className="text-lg text-navy-600 max-w-2xl mx-auto">
-                Our core values shape our culture and guide our decisions in every project we undertake.
+                {settings.about_values_header_subtitle ?? 'Our core values shape our culture and guide our decisions in every project we undertake.'}
               </p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {values.map((value, index) => (
+              {(settings.about_values_items ?? values).map((value: any, index: number) => (
                 <motion.div
                   key={index}
                   variants={fadeInUp}

@@ -9,12 +9,19 @@ import {
   Radio,
   Settings
 } from 'lucide-react'
+import { useEffect, useState } from 'react'
+import { fetchSettingsMap, SettingsMap } from '@/lib/content'
 
 const HeroSection = () => {
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1
   })
+  const [settings, setSettings] = useState<SettingsMap>({})
+
+  useEffect(() => {
+    fetchSettingsMap().then(setSettings)
+  }, [])
 
   const handleScrollToContact = () => {
     const element = document.querySelector('#contact')
@@ -128,7 +135,7 @@ const HeroSection = () => {
             className="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-6 py-2 mb-8"
           >
             <div className="w-2 h-2 bg-accent-green rounded-full animate-pulse"></div>
-            <span className="text-white/90 font-medium">Leading Innovation in Africa</span>
+            <span className="text-white/90 font-medium">{settings.hero_badge_text ?? 'Leading Innovation in Africa'}</span>
           </motion.div>
 
           {/* Main Headline */}
@@ -136,9 +143,9 @@ const HeroSection = () => {
             variants={fadeInUp}
             className="text-white font-heading mb-6 text-shadow-lg"
           >
-            Powering the Future of{' '}
+            {(settings.hero_main_headline ?? 'Powering the Future of')}{' '}
             <span className="text-gradient bg-gradient-to-r from-primary-300 to-accent-green bg-clip-text text-transparent">
-              Connectivity & Energy
+              {settings.hero_highlight_text ?? 'Connectivity & Energy'}
             </span>
           </motion.h1>
 
@@ -147,8 +154,7 @@ const HeroSection = () => {
             variants={fadeInUp}
             className="text-xl md:text-2xl text-gray-200 mb-10 leading-relaxed max-w-3xl mx-auto"
           >
-            Advanced telecommunications infrastructure, sustainable energy systems, and engineering excellence. 
-            Building smart connectivity across Africa and beyond.
+            {settings.hero_description ?? 'Advanced telecommunications infrastructure, sustainable energy systems, and engineering excellence. Building smart connectivity across Africa and beyond.'}
           </motion.p>
 
           {/* Key Features */}
@@ -179,7 +185,7 @@ const HeroSection = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              <span>Discover Our Solutions</span>
+              <span>{settings.hero_cta_primary ?? 'Discover Our Solutions'}</span>
               <ArrowRight 
                 size={18} 
                 className="group-hover:translate-x-1 transition-transform duration-200" 
@@ -193,7 +199,7 @@ const HeroSection = () => {
               whileTap={{ scale: 0.95 }}
             >
               <Play size={16} className="group-hover:scale-110 transition-transform duration-200" />
-              <span>Watch Demo</span>
+              <span>{settings.hero_cta_secondary ?? 'Watch Demo'}</span>
             </motion.button>
           </motion.div>
 
