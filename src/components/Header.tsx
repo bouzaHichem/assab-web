@@ -6,6 +6,9 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X, ChevronDown } from 'lucide-react'
 import { useTranslations, useLocale } from 'next-intl'
 import LanguageSwitcher from './LanguageSwitcher'
+import { apiCall } from '@/lib/api'
+
+type NavItem = { name: string; href: string; dropdown?: { name: string; href: string }[] }
 
 const Header = () => {
   const t = useTranslations('nav')
@@ -13,6 +16,7 @@ const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null)
+  const [navigationItems, setNavigationItems] = useState<NavItem[]>([])
 
   useEffect(() => {
     const handleScroll = () => {
@@ -23,23 +27,52 @@ const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  const navigationItems = [
-    { name: t('home'), href: '#home' },
-    { name: t('about'), href: '#about' },
-    {
-      name: t('solutions'),
-      href: '#solutions',
-      dropdown: [
-        { name: t('telecomInfrastructure'), href: '#telecom' },
-        { name: t('energySystems'), href: '#energy' },
-        { name: t('engineeringIntegration'), href: '#engineering' },
-      ]
-    },
-    { name: t('industries'), href: '#industries' },
-    { name: t('projects'), href: '#projects' },
-    { name: t('team'), href: '#team' },
-    { name: t('contact'), href: '#contact' },
-  ]
+  useEffect(() => {
+    const loadMenus = async () => {
+      try {
+        const resp = await apiCall('/api/content/menus')
+        if (!resp.ok) throw new Error('Failed to load menus')
+        const data = await resp.json()
+        const header = Array.isArray(data.header) ? data.header : []
+        // Map backend items to UI, filter active, sort by order
+        const mapped: NavItem[] = header
+          .filter((item: any) => item.isActive !== false)
+          .sort((a: any, b: any) => (a.order ?? 0) - (b.order ?? 0))
+          .map((item: any) => ({
+            name: item.name,
+            href: item.href || '#',
+            dropdown: Array.isArray(item.dropdownItems) && item.dropdownItems.length > 0
+              ? item.dropdownItems
+                  .filter((di: any) => di)
+                  .sort((a: any, b: any) => (a.order ?? 0) - (b.order ?? 0))
+                  .map((di: any) => ({ name: di.name, href: di.href || '#' }))
+              : undefined,
+          }))
+        setNavigationItems(mapped)
+      } catch (e) {
+        // Fallback to translated static items if API fails
+        setNavigationItems([
+          { name: t('home'), href: '#home' },
+          { name: t('about'), href: '#about' },
+          {
+            name: t('solutions'),
+            href: '#solutions',
+            dropdown: [
+              { name: t('telecomInfrastructure'), href: '#telecom' },
+              { name: t('energySystems'), href: '#energy' },
+              { name: t('engineeringIntegration'), href: '#engineering' },
+            ]
+          },
+          { name: t('industries'), href: '#industries' },
+          { name: t('projects'), href: '#projects' },
+          { name: t('team'), href: '#team' },
+          { name: t('contact'), href: '#contact' },
+        ])
+      }
+    }
+    loadMenus()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   const handleLinkClick = (href: string) => {
     setIsMobileMenuOpen(false)
