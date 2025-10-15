@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { 
   ExternalLink,
   MapPin,
@@ -15,6 +15,7 @@ import {
   ChevronLeft,
   ChevronRight
 } from 'lucide-react'
+import { fetchSettingsMap, SettingsMap } from '@/lib/content'
 
 interface Project {
   id: number
@@ -39,6 +40,8 @@ const ProjectsSection = () => {
 
   const [selectedProject, setSelectedProject] = useState<Project | null>(null)
   const [activeFilter, setActiveFilter] = useState('all')
+  const [settings, setSettings] = useState<SettingsMap>({})
+  useEffect(() => { fetchSettingsMap().then(setSettings) }, [])
 
   const fadeInUp = {
     initial: { opacity: 0, y: 60 },
@@ -54,7 +57,7 @@ const ProjectsSection = () => {
     }
   }
 
-  const projects = [
+  const defaultProjects = [
     {
       id: 1,
       title: 'Algeria National Fiber Network',
@@ -165,11 +168,12 @@ const ProjectsSection = () => {
     }
   ]
 
+  const projects: any[] = (settings.projects_items ?? defaultProjects)
+
+  const categories = Array.from(new Set(projects.map(p => p.category)))
   const filters = [
     { id: 'all', label: 'All Projects', icon: <Settings size={16} /> },
-    { id: 'telecom', label: 'Telecom', icon: <Radio size={16} /> },
-    { id: 'energy', label: 'Energy', icon: <Zap size={16} /> },
-    { id: 'engineering', label: 'Engineering', icon: <Settings size={16} /> }
+    ...categories.map((c: string) => ({ id: c, label: c.charAt(0).toUpperCase()+c.slice(1), icon: c==='telecom'? <Radio size={16}/> : c==='energy'? <Zap size={16}/> : <Settings size={16}/> }))
   ]
 
   const filteredProjects = activeFilter === 'all' 
@@ -192,22 +196,21 @@ const ProjectsSection = () => {
               className="inline-flex items-center space-x-2 bg-primary-50 text-primary-600 px-4 py-2 rounded-full text-sm font-medium mb-4"
             >
               <Settings size={16} />
-              <span>Our Projects</span>
+              <span>{settings.projects_badge_text ?? 'Our Projects'}</span>
             </motion.div>
             
             <motion.h2
               variants={fadeInUp}
               className="text-navy-900 font-heading mb-6"
             >
-              Transforming Infrastructure Across Africa
+              {settings.projects_section_title ?? 'Transforming Infrastructure Across Africa'}
             </motion.h2>
             
             <motion.p
               variants={fadeInUp}
               className="text-xl text-navy-600 max-w-3xl mx-auto leading-relaxed"
             >
-              Discover our portfolio of successful projects that have revolutionized telecommunications 
-              and energy infrastructure across the continent.
+              {settings.projects_section_description ?? 'Discover our portfolio of successful projects that have revolutionized telecommunications and energy infrastructure across the continent.'}
             </motion.p>
           </div>
 
@@ -291,7 +294,7 @@ const ProjectsSection = () => {
 
                     {/* Stats */}
                     <div className="grid grid-cols-3 gap-4 mb-6">
-                      {project.stats.map((stat, idx) => (
+                      {(project.stats as string[]).map((stat: string, idx: number) => (
                         <div key={idx} className="text-center">
                           <div className="text-lg font-bold text-primary-600">{stat}</div>
                         </div>
@@ -300,7 +303,7 @@ const ProjectsSection = () => {
 
                     {/* Technologies */}
                     <div className="flex flex-wrap gap-2">
-                      {project.technologies.slice(0, 2).map((tech, idx) => (
+                      {(project.technologies as string[]).slice(0, 2).map((tech: string, idx: number) => (
                         <span
                           key={idx}
                           className="px-3 py-1 bg-primary-50 text-primary-600 text-xs font-medium rounded-full"

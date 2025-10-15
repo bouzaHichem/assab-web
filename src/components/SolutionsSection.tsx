@@ -15,12 +15,16 @@ import {
   ArrowRight,
   CheckCircle
 } from 'lucide-react'
+import { useEffect, useState } from 'react'
+import { fetchSettingsMap, SettingsMap } from '@/lib/content'
 
 const SolutionsSection = () => {
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1
   })
+  const [settings, setSettings] = useState<SettingsMap>({})
+  useEffect(() => { fetchSettingsMap().then(setSettings) }, [])
 
   const fadeInUp = {
     initial: { opacity: 0, y: 60 },
@@ -36,7 +40,7 @@ const SolutionsSection = () => {
     }
   }
 
-  const solutions = [
+  const defaultSolutions = [
     {
       id: 'telecom',
       icon: <Radio size={40} />,
@@ -105,6 +109,8 @@ const SolutionsSection = () => {
     }
   ]
 
+  const solutions: any[] = (settings.solutions_items ?? defaultSolutions)
+
   const serviceIcons = [
     { icon: <Antenna size={24} />, label: 'Tower Solutions' },
     { icon: <Network size={24} />, label: 'Network Design' },
@@ -130,22 +136,21 @@ const SolutionsSection = () => {
               className="inline-flex items-center space-x-2 bg-primary-50 text-primary-600 px-4 py-2 rounded-full text-sm font-medium mb-4"
             >
               <Settings size={16} />
-              <span>Our Solutions</span>
+              <span>{settings.solutions_badge_text ?? 'Our Solutions'}</span>
             </motion.div>
             
             <motion.h2
               variants={fadeInUp}
               className="text-navy-900 font-heading mb-6"
             >
-              Complete Infrastructure Solutions
+              {settings.solutions_section_title ?? 'Complete Infrastructure Solutions'}
             </motion.h2>
             
             <motion.p
               variants={fadeInUp}
               className="text-xl text-navy-600 max-w-3xl mx-auto leading-relaxed"
             >
-              From telecommunications infrastructure to sustainable energy systems, 
-              we deliver integrated solutions that power your digital transformation.
+              {settings.solutions_section_description ?? 'From telecommunications infrastructure to sustainable energy systems, we deliver integrated solutions that power your digital transformation.'}
             </motion.p>
           </div>
 
@@ -200,7 +205,7 @@ const SolutionsSection = () => {
 
                   {/* Benefits */}
                   <div className="grid grid-cols-2 gap-4 mb-8">
-                    {solution.benefits.map((benefit, idx) => (
+                    {(solution.benefits as string[]).map((benefit: string, idx: number) => (
                       <div key={idx} className="flex items-center space-x-3">
                         <CheckCircle size={20} className="text-accent-green flex-shrink-0" />
                         <span className="text-navy-700 font-medium">{benefit}</span>
@@ -231,7 +236,7 @@ const SolutionsSection = () => {
                   >
                     <h4 className="text-2xl font-heading text-navy-900 mb-6">Key Features</h4>
                     <div className="space-y-4">
-                      {solution.features.map((feature, idx) => (
+                      {(solution.features as string[]).map((feature: string, idx: number) => (
                         <motion.div
                           key={idx}
                           initial={{ opacity: 0, x: -20 }}

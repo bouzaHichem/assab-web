@@ -12,12 +12,16 @@ import {
   Truck,
   GraduationCap
 } from 'lucide-react'
+import { useEffect, useState } from 'react'
+import { fetchSettingsMap, SettingsMap } from '@/lib/content'
 
 const IndustriesSection = () => {
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1
   })
+  const [settings, setSettings] = useState<SettingsMap>({})
+  useEffect(() => { fetchSettingsMap().then(setSettings) }, [])
 
   const fadeInUp = {
     initial: { opacity: 0, y: 60 },
@@ -33,7 +37,7 @@ const IndustriesSection = () => {
     }
   }
 
-  const industries = [
+  const defaultIndustries = [
     {
       icon: <Radio size={48} />,
       title: 'Telecom Operators',
@@ -82,7 +86,9 @@ const IndustriesSection = () => {
       stats: '30+ Institutions',
       gradient: 'from-indigo-500 to-primary-600'
     }
-  ]
+]
+
+  const industries: any[] = (settings.industries_items ?? defaultIndustries)
 
   return (
     <section id="industries" className="section-padding bg-section-gradient">
@@ -100,22 +106,21 @@ const IndustriesSection = () => {
               className="inline-flex items-center space-x-2 bg-primary-50 text-primary-600 px-4 py-2 rounded-full text-sm font-medium mb-4"
             >
               <Building2 size={16} />
-              <span>Industries We Serve</span>
+              <span>{settings.industries_badge_text ?? 'Industries We Serve'}</span>
             </motion.div>
             
             <motion.h2
               variants={fadeInUp}
               className="text-navy-900 font-heading mb-6"
             >
-              Powering Growth Across Industries
+              {settings.industries_section_title ?? 'Powering Growth Across Industries'}
             </motion.h2>
             
             <motion.p
               variants={fadeInUp}
               className="text-xl text-navy-600 max-w-3xl mx-auto leading-relaxed"
             >
-              From telecommunications to energy, government to enterprise, 
-              we deliver specialized solutions tailored to each industry's unique requirements.
+              {settings.industries_section_description ?? "From telecommunications to energy, government to enterprise, we deliver specialized solutions tailored to each industry's unique requirements."}
             </motion.p>
           </div>
 
@@ -153,7 +158,7 @@ const IndustriesSection = () => {
                   {/* Services */}
                   <div className="space-y-2">
                     <h4 className="font-semibold text-navy-900 mb-3">Key Services:</h4>
-                    {industry.services.map((service, idx) => (
+                    {(industry.services as string[]).map((service: string, idx: number) => (
                       <div key={idx} className="flex items-center space-x-2">
                         <div className="w-1.5 h-1.5 bg-primary-500 rounded-full"></div>
                         <span className="text-navy-700 text-sm">{service}</span>
